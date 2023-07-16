@@ -1,21 +1,27 @@
 import React from 'react';
-import {View, StyleSheet, Image, Text, ImageBackground} from 'react-native';
-
+import { View, StyleSheet, Image, Text, ImageBackground } from 'react-native';
+import Button from './button';
 const App = () => {
-  const backgroundImage = require('../assets/bacg.jpg');
-  const overlayImage  = require('../assets/logo1.png');
+  const backgroundImage = require('../assets/img/login/bacg.jpg');
+  const overlayImage = require('../assets/img/login/logo1.png');
+  const handleButtonPress = () => {
+    console.log('Success!');
+
+  }
   return (
     <View style={styles.container}>
       <View style={styles.box1}>
-        <ImageBackground source={backgroundImage} style={styles.backgroundImage}/>
-          <View style={styles.overlay}>
-            <Image source={overlayImage } style={styles.overlayImage}/>
-          </View>
-            <Text style={[styles.text, styles.topText]}>HSSK</Text>
-            <Text style={[styles.text, styles.bottomText]}>Hồ sơ sức khỏe</Text>
-        
+        <ImageBackground source={backgroundImage} style={styles.backgroundImage} />
+        <View style={styles.overlay}>
+          <Image source={overlayImage} style={styles.overlayImage} />
+        </View>
+        <Text style={[styles.text, styles.topText]}>HSSK</Text>
+        <Text style={[styles.text, styles.bottomText]}>Hồ sơ sức khỏe</Text>
+
       </View>
-      <View style={styles.box2}></View>
+      <View style={styles.box2}>
+        <Button style={styles.buttonlog} title="Đăng nhập" onPress={handleButtonPress} />
+      </View>
     </View>
   );
 };
@@ -38,11 +44,13 @@ const styles = StyleSheet.create({
   box2: {
     width: '100%',
     height: 548,
-    backgroundColor: 'green',
+    backgroundColor: '#FFFFFF',
     borderTopRightRadius: 30,
     borderTopLeftRadius: 30,
     zIndex: 1000,
     marginTop: -36,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   backgroundImage: {
     flex: 1,
@@ -59,9 +67,9 @@ const styles = StyleSheet.create({
     bottom: '70%',
     resizeMode: 'contain',
     overlayColor: '#007AFE'
-  
+
   },
-  overlay:{
+  overlay: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -77,14 +85,18 @@ const styles = StyleSheet.create({
     top: '36%',
     fontSize: 32,
     fontWeight: 700,
-    
+
   },
   bottomText: {
     bottom: '42%',
     fontSize: 18,
     fontWeight: 500
   },
-  
+  buttonlog: {
+    fontWeight: 'inter',
+
+  }
+
 });
 
 export default App;
